@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js"></script>
+        <title>Name Match Calc/이름 궁합 계산기</title>
+        <style>
+	@font-face {
+	  font-family: 'Noto Sans KR';
+	  font-style: normal;
+	  font-weight: 400;
+	  src: url('../fonts/noto-sans-kr-v13-latin-regular.eot'); /* IE9 Compat Modes */
+	  src: local(''),
+	       url('../fonts/noto-sans-kr-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	       url('../fonts/noto-sans-kr-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+	       url('../fonts/noto-sans-kr-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+	       url('../fonts/noto-sans-kr-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+	       url('../fonts/noto-sans-kr-v13-latin-regular.svg#NotoSansKR') format('svg'); /* Legacy iOS */
+	}
+
+	.python {
+          font-family: "Noto Sans KR";
+          text-align: center;
+          background-color: black;
+          color: white;
+          font-size: 150%;
+    }
+    </style>
+    </head>
+    <body onload="brython()" class="python">
+        <div class="div">-- 파일을 로드하는 중입니다 --<br>10초 이상 로딩이 지속되면 F5 혹은 다른 브라우저로 접속해주세요.</div>
+    </body>
+</html>
+
+
+<script type="text/python" src="brynamecal.py"></script>
