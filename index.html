@@ -38,7 +38,6 @@ from browser import html
 
 document[""]
 
-import os
 import sys
 import re
 
@@ -135,7 +134,7 @@ if __name__ == '__main__':
 	        'ㅜ': 2, 'ㅝ': 4, 'ㅞ': 4, 'ㅟ': 3, 'ㅠ': 2, 'ㅡ': 1, 'ㅢ': 4, 'ㅣ': 1
 	    }
     else:
-	    document <= '값이 올바르지 않습니다' + html.BR();os._exit(1)
+	    document <= '값이 올바르지 않습니다' + html.BR();exit()
 
     name1 = input('첫번째 사람의 이름 : ')
     name2 = input('두번째 사람의 이름 : ')
@@ -147,10 +146,10 @@ if __name__ == '__main__':
             name2 = tmp
 
     if str(isHangul(name1)) == 'False' or abs(len(name1)) < 2 or abs(len(name1)) > 4 :
-    document <= '값이 올바르지 않습니다' + html.BR();os._exit(1)
+    document <= '값이 올바르지 않습니다' + html.BR();exit()
 
     if str(isHangul(name2)) == 'False' or abs(len(name2)) < 2 or abs(len(name2)) > 4 :
-    document <= '값이 올바르지 않습니다' + html.BR();os._exit(1)
+    document <= '값이 올바르지 않습니다' + html.BR();exit()
 
     sep1 = [sum([map_strokes[s] for s in sep(c)]) % 10 for c in name1]
     sep2 = [sum([map_strokes[s] for s in sep(c)]) % 10 for c in name2]
