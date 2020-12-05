@@ -1,9 +1,9 @@
 <html>
     <head>
     <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js"></script>
-        <title>Name Match Calc/이름 궁합 계산기</title>
-        <style>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.8.10/brython_stdlib.js"></script>
+    <title>Name Match Calc/이름 궁합 계산기</title>
+    <style>
 	@font-face {
 	  font-family: 'Noto Sans KR';
 	  font-style: normal;
@@ -27,7 +27,7 @@
     </style>
     </head>
     <body onload="brython()" class="python">
-        <div class="div">-- 파일을 로드하는 중입니다 --<br>10초 이상 로딩이 지속되면 F5 혹은 다른 브라우저로 접속해주세요.</div>
+        <div class="div" id="text">-- 파일을 로드하는 중입니다 --<br>10초 이상 로딩이 지속되면 F5 혹은 다른 브라우저로 접속해주세요.</div>
     </body>
 </html>
 
@@ -35,11 +35,10 @@
 <script type="text/python">
 from browser import document
 from browser import html
-
-document[""]
-
 import sys
 import re
+
+document["text"]
 
 consonent_first = ord('ㄱ')
 consonent_last = ord('ㅎ')
@@ -89,11 +88,12 @@ def sep(syl):
 
 
 if __name__ == '__main__':
-    document[""].textContent = ""
+
+    document["text"].textContent=""
 
     from itertools import zip_longest
 
-    document <= 'Name Match Calc\n\nBy MiRoo(fb.me/miroonest)\n본 계산기는 namnyang님이 변환하신 github.com/ilhwanh/name-divination의 코드를 차용하였습니다.' + html.BR() + '-------------------------------' + html.BR()
+    document <= 'Name Match Calc'+ html.BR() +'By MiRoo(fb.me/miroonest)'+ html.BR() +'본 계산기는 github.com/ilhwanh/name-divination의 코드를 차용하였습니다.' + html.BR() + '' + html.BR() + '-------------------------------' + html.BR()
 
     stroketype = int(input('선 하나 당 1로 계산하려면 1, 획 하나 당 1로 계산하려면(ㅈ=2, ㅊ=3, ㅃ=8, ㅆ=4) 2를, 획 하나 당 1로 계산하려면(ㅈ=3, ㅊ=4, ㅃ=5, ㅆ=3) 3을, 인터넷에 떠도는 이름점 계산법은 4를 입력하세요 : '))
     
@@ -133,8 +133,7 @@ if __name__ == '__main__':
 	        'ㅏ': 3, 'ㅐ': 4, 'ㅑ': 3, 'ㅒ': 5, 'ㅓ': 2, 'ㅔ': 2, 'ㅕ': 2, 'ㅖ': 4, 'ㅗ': 3, 'ㅘ': 6, 'ㅙ': 7, 'ㅚ': 4, 'ㅛ': 2, 
 	        'ㅜ': 2, 'ㅝ': 4, 'ㅞ': 4, 'ㅟ': 3, 'ㅠ': 2, 'ㅡ': 1, 'ㅢ': 4, 'ㅣ': 1
 	    }
-    else:
-	    document <= '값이 올바르지 않습니다' + html.BR();exit()
+    else: document <= '값이 올바르지 않습니다' + html.BR();exit()
 
     name1 = input('첫번째 사람의 이름 : ')
     name2 = input('두번째 사람의 이름 : ')
@@ -145,11 +144,9 @@ if __name__ == '__main__':
             name1 = name2
             name2 = tmp
 
-    if str(isHangul(name1)) == 'False' or abs(len(name1)) < 2 or abs(len(name1)) > 4 :
-    document <= '값이 올바르지 않습니다' + html.BR();exit()
+    if str(isHangul(name1)) == 'False' or abs(len(name1)) < 2 or abs(len(name1)) > 4 : document <= '값이 올바르지 않습니다' + html.BR();exit()
 
-    if str(isHangul(name2)) == 'False' or abs(len(name2)) < 2 or abs(len(name2)) > 4 :
-    document <= '값이 올바르지 않습니다' + html.BR();exit()
+    if str(isHangul(name2)) == 'False' or abs(len(name2)) < 2 or abs(len(name2)) > 4 : document <= '값이 올바르지 않습니다' + html.BR();exit()
 
     sep1 = [sum([map_strokes[s] for s in sep(c)]) % 10 for c in name1]
     sep2 = [sum([map_strokes[s] for s in sep(c)]) % 10 for c in name2]
@@ -177,5 +174,5 @@ if __name__ == '__main__':
 
     document <= '-------------------------------' + html.BR()
     document <= '계산 결과: {}%'.format(score[0] * 10 + score[1])
-    document <= html.BR() + '-------------------------------' + html.BR() + "다시 하시려면 로드를 다시 해주세요." + html.BR() + html.BR()
+    document <= html.BR() + '-------------------------------' + html.BR() + '' + html.BR() + "다시 하시려면 F5를 눌러 재로드해주세요." + html.BR() + html.BR()
 </script>
